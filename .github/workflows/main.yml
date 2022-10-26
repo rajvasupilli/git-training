@@ -30,6 +30,6 @@ jobs:
          echo "Action executed on staging branch"        
          
       - name: 'Run on multi branch'
-        if: ${{ github.event.inputs.branch_name == 'refs/heads/multi' }}
+        if: ${{ github.event.inputs.branch_name == 'multi' }}
         run: |
          echo "Action executed on multi branch"
