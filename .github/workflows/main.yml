@@ -1,0 +1,34 @@
+name: Build and Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        required: true
+        description: Branch Name
+        options: 
+        - main
+        - staging
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2                
+    
+      - name: 'Run on main branch'
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+         echo "Action executed on main branch"
+      
+      - name: 'Run on staging branch'
+        if: ${{ github.ref == 'refs/heads/staging' }}
+        run: |
+         echo "Action executed on staging branch"        
+         
+      - name: 'Run on multi branch'
+        if: ${{ github.ref == 'refs/heads/multi' }}
+        run: |
+         echo "Action executed on multi branch"
