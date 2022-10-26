@@ -19,9 +19,9 @@ jobs:
       - uses: actions/checkout@v2                
     
       - name: 'Run on main branch'
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         run: |
-         echo "Action executed on main branch"
+         echo "Action executed on master branch"
       
       - name: 'Run on staging branch'
         if: ${{ github.ref == 'refs/heads/staging' }}
