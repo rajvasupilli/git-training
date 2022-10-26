@@ -10,6 +10,7 @@ on:
         options: 
         - master
         - staging
+        - multi
 
 jobs:
   build-and-deploy:
