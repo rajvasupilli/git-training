@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   workflow_dispatch:
     inputs:
-      name:
+      branch_name:
         type: choice
         required: true
         description: Branch Name
@@ -20,16 +20,16 @@ jobs:
       - uses: actions/checkout@v2                
     
       - name: 'Run on master branch'
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.event.inputs.branch_name == 'refs/heads/master' }}
         run: |
          echo "Action executed on master branch"
       
       - name: 'Run on staging branch'
-        if: ${{ github.ref == 'refs/heads/staging' }}
+        if: ${{ github.event.inputs.branch_name == 'refs/heads/staging' }}
         run: |
          echo "Action executed on staging branch"        
          
       - name: 'Run on multi branch'
-        if: ${{ github.ref == 'refs/heads/multi' }}
+        if: ${{ github.event.inputs.branch_name == 'refs/heads/multi' }}
         run: |
          echo "Action executed on multi branch"
