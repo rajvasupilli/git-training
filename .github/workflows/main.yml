@@ -21,10 +21,10 @@ on:
         - staging
         - multi
         
-env:
-    AZURE_CONTAINER_REGISTRY: ${{ AWS_ACCESS_KEY_ID }}
-    IMAGE_PULL_SECRET_NAME: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    CLUSTER_NAME: ${{ secrets.KUBE_CONFIG }}
+# env:
+#     AZURE_CONTAINER_REGISTRY: ${{ AWS_ACCESS_KEY_ID }}
+#     IMAGE_PULL_SECRET_NAME: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#     CLUSTER_NAME: ${{ secrets.KUBE_CONFIG }}
 
 jobs:
   build-and-deploy:
@@ -43,7 +43,7 @@ jobs:
         if: ${{ github.event.inputs.branch_name == 'staging' }}
         run: |
          echo "Action executed on staging branch"          
-         echo "AZURE_CONTAINER_REGISTRY: env.AZURE_CONTAINER_REGISTRY"
+         echo "AZURE_CONTAINER_REGISTRY: $AWS_ACCESS_KEY_ID"
          
       - name: 'Run on multi branch'
         if: ${{ github.event.inputs.branch_name == 'multi' }}
