@@ -43,7 +43,7 @@ jobs:
         if: ${{ github.event.inputs.branch_name == 'staging' }}
         run: |
          echo "Action executed on staging branch"          
-         echo "AZURE_CONTAINER_REGISTRY: $AWS_ACCESS_KEY_ID"
+         echo "AZURE_CONTAINER_REGISTRY: ${{ AWS_ACCESS_KEY_ID }}"
          
       - name: 'Run on multi branch'
         if: ${{ github.event.inputs.branch_name == 'multi' }}
