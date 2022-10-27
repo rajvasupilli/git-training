@@ -22,7 +22,7 @@ on:
         - multi
         
 env:
-    AZURE_CONTAINER_REGISTRY: ${{ environment.secrets.AWS_ACCESS_KEY_ID }}
+    AZURE_CONTAINER_REGISTRY: ${{ AWS_ACCESS_KEY_ID }}
     IMAGE_PULL_SECRET_NAME: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     CLUSTER_NAME: ${{ secrets.KUBE_CONFIG }}
 
